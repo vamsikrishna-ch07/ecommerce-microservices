@@ -12,4 +12,3 @@ spring:
           uri: https://github.com/vamsikrishna-ch07/config-repo
           clone-on-start: true
           default-label: main
-
