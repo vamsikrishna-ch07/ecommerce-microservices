@@ -5,22 +5,18 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Table(name = "users")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(nullable = false, unique = true)
     private String username;
-
-    private String email;
-
+    @Column(nullable = false)
     private String password;
+    @Column(nullable = false, unique = true)
+    private String email;
+    private String role;
 
-    private String role;  // Example: ROLE_USER, ROLE_ADMIN
+    // getters and setters
 }
