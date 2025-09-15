@@ -1,4 +1,24 @@
 
+## Core Microservices (Business Logic)
+
+- **User Service** – manages users (registration, profile, roles)
+- **Product Service** – manages products (catalog, inventory, categories)
+- **Order Service** – manages customer orders
+- **Payment Service** – handles payments
+- **Cart Service** – manages shopping carts
+
+---
+
+### 🔹 Infrastructure & Support Services
+
+- **Auth (JWT Security) Service** – responsible for authentication & issuing JWT tokens
+- **API Gateway** – single entry point for all clients (routes requests, validates JWT)
+- **Service Registry (Eureka/Consul)** – service discovery
+- **Config Server** – centralized configuration management
+
+
+
+
 =======
 left to create:# Microservices Overview
 🆕 Product Service	Handles products (CRUD: add, update, delete, view)
