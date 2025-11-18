@@ -24,6 +24,7 @@
         <module>config-Server</module>
         <module>gateway-service</module>
         <module>service-registry</module>
+        <module>auth-Service</module>
     </modules>
 
     <dependencyManagement>

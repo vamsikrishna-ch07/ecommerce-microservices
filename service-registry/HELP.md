@@ -30,3 +30,4 @@ While most of the inheritance is fine, it also inherits unwanted elements like `
 To prevent this, the project POM contains empty overrides for these elements.
 If you manually switch to a different parent and actually want the inheritance, you need to remove those overrides.
 
+ec8b5456-88fa-4206-95bc-7ccc3117edec
