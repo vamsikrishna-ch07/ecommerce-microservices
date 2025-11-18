@@ -1,45 +1,36 @@
 package com.ecommerce.userservice.controller;
 
 
-import com.ecommerce.userservice.dto.UserDto;
+import com.ecommerce.userservice.dto.UserRegistrationRequest;
 import com.ecommerce.userservice.entity.User;
 import com.ecommerce.userservice.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
-
-
-import java.util.List;
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/users")
+@RequiredArgsConstructor
 public class UserController {
-    @Autowired
-    private UserService service;
 
+    private final UserService userService;
+
+    // Register endpoint
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody User user) {
-        return ResponseEntity.ok(service.registerUser(user));
+    public ResponseEntity<User> registerUser(@RequestBody UserRegistrationRequest request) {
+        User savedUser = userService.registerUser(request);
+        return ResponseEntity.ok(savedUser);
     }
 
+    // (Optional) get all users – only for testing/admin
     @GetMapping
-    public List<User> getAll() {
-        return service.findAll();
+    public ResponseEntity<?> getAllUsers() {
+        return ResponseEntity.ok(userService.getAllUsers());
+    }
+    @GetMapping("/findByUsername/{username}")
+    public ResponseEntity<User> findByUsername(@PathVariable String username) {
+        return ResponseEntity.ok(userService.findByUsername(username));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<User> getById(@PathVariable Long id) {
-        Optional<User> user = service.findById(id);
-        return user.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
-        service.deleteUser(id);
-        return ResponseEntity.ok().build();
-    }
 }
