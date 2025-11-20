@@ -1,0 +1,6 @@
+[submodule "userbased-jwt-auth"]
+	path = userbased-jwt-auth
+	url = https://github.com/pro-001/userbased-jwt-auth.git
+[submodule "user-service2"]
+	path = user-service2
+	url = https://github.com/pro-001/user-service.git
